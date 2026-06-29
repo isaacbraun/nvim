@@ -3,23 +3,23 @@
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'Clear search highlights' })
 
 -- Replace highlighted word throughout file
 vim.keymap.set('n', '<leader>r', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = '[R]eplace highlighted word throughout file' })
 
-vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
+vim.keymap.set('n', '<leader>e', vim.cmd.Ex, { desc = '[E]xplore file tree' })
 
 -- Move Highlighted lines up/down
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move highlighted lines [J] down' })
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move highlighted lines [K] up' })
 
 -- Append line below to current line without moving cursor
-vim.keymap.set("n", "J", "mzJ`z")
+vim.keymap.set('n', 'J', 'mzJ`z', { desc = 'Append line below to current line' })
 
 -- Keep cursor in center when half-page jumping
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Jump half page [D]own' })
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Jump half page [U]p' })
 
 -- Open diagnostic message in float window
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Open [D]iagnostic message under cursor' })
