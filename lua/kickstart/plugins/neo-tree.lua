@@ -10,12 +10,6 @@ vim.pack.add {
 vim.keymap.set('n', '<leader>e', '<Cmd>Neotree reveal<CR>', { desc = '[E]xplore file tree', silent = true })
 
 require('neo-tree').setup {
-  event_handlers = {
-    {
-      event = 'file_opened',
-      handler = function() require('neo-tree.command').execute { action = 'close' } end,
-    },
-  },
   filesystem = {
     filtered_items = {
       hide_dotfiles = false,
@@ -30,10 +24,10 @@ require('neo-tree').setup {
       leave_dirs_open = false,
     },
     window = {
+      position = 'current',
       mappings = {
         ['<leader>e'] = 'close_window',
       },
-      width = 25,
     },
   },
 }
