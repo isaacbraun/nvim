@@ -10,7 +10,12 @@ vim.pack.add(harpoon_plugins)
 
 local harpoon = require 'harpoon'
 
-harpoon:setup()
+harpoon:setup {
+  settings = {
+    save_on_toggle = true,
+    excluded_filetypes = { 'harpoon' },
+  },
+}
 
 vim.keymap.set('n', '<C-e>', function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = '[E]xplore Harpoons' })
 
