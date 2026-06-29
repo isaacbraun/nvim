@@ -5,12 +5,10 @@
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'Clear search highlights' })
 
--- Replace highlighted word throughout file
 vim.keymap.set('n', '<leader>r', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = '[R]eplace highlighted word throughout file' })
 
-vim.keymap.set('n', '<leader>e', vim.cmd.Ex, { desc = '[E]xplore file tree' })
+vim.keymap.set({ 'n', 'v' }, '<leader>v', [["_d]], { desc = 'Delete into [V]oid register' })
 
--- Move Highlighted lines up/down
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move highlighted lines [J] down' })
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move highlighted lines [K] up' })
 
