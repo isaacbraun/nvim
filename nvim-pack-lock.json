@@ -63,6 +63,11 @@
       "rev": "c248713d3530710f67ec804cfbdfcd5b02b19dee",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
+    "neo-tree.nvim": {
+      "rev": "83e7a2982fd12b9c3d35bc39dd5877cd91a02a61",
+      "src": "https://github.com/nvim-neo-tree/neo-tree.nvim",
+      "version": ">=0.0.0"
+    },
     "neotest": {
       "rev": "ad991822b7076b1d940b33a9d6d0d30416d5df81",
       "src": "https://github.com/nvim-neotest/neotest"
@@ -71,9 +76,21 @@
       "rev": "ab5a73d6ec9d33e807d6c67ce5169c4ca4a5d7f3",
       "src": "https://github.com/marilari88/neotest-vitest"
     },
+    "nui.nvim": {
+      "rev": "de740991c12411b663994b2860f1a4fd0937c130",
+      "src": "https://github.com/MunifTanjim/nui.nvim"
+    },
     "nvim": {
       "rev": "e068ab5f8261f23f6f71ffd8791ae40315b77b9c",
       "src": "https://github.com/catppuccin/nvim"
+    },
+    "nvim-autopairs": {
+      "rev": "7b9923abad60b903ece7c52940e1321d39eccc79",
+      "src": "https://github.com/windwp/nvim-autopairs"
+    },
+    "nvim-lint": {
+      "rev": "a219b2c9e5b4765e5c845aba119dad55806fcaf1",
+      "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
       "rev": "3371bf298c1f56efc26771ee961f461176958fb5",
