@@ -57,6 +57,11 @@ require('blink.cmp').setup {
     documentation = { auto_show = false, auto_show_delay_ms = 500 },
   },
 
+  cmdline = {
+    keymap = { preset = 'inherit' },
+    completion = { menu = { auto_show = true } },
+  },
+  
   sources = {
     default = { 'lsp', 'path', 'snippets' },
   },
