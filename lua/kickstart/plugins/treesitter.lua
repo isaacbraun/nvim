@@ -6,11 +6,15 @@ local function gh(repo) return 'https://github.com/' .. repo end
 --  See `:help nvim-treesitter-intro`
 
 -- NOTE: You can also specify a branch or a specific commit
-vim.pack.add { { src = gh 'nvim-treesitter/nvim-treesitter', version = 'main' } }
+vim.pack.add {
+  { src = gh 'nvim-treesitter/nvim-treesitter', version = 'main' },
+  gh 'nvim-treesitter/nvim-treesitter-context',
+}
 
 -- Ensure basic parsers are installed
 local parsers = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' }
 require('nvim-treesitter').install(parsers)
+require 'treesitter-context'
 
 ---@param buf integer
 ---@param language string
@@ -22,8 +26,10 @@ local function treesitter_try_attach(buf, language)
 
   -- Enable treesitter based folds
   -- For more info on folds see `:help folds`
-  -- vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-  -- vim.wo.foldmethod = 'expr'
+  vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+  vim.wo.foldmethod = 'expr'
+  vim.o.foldlevel = 99
+  vim.o.foldlevelstart = 99
 
   -- Check if treesitter indentation is available for this language, and if so enable it
   -- in case there is no indent query, the indentexpr will fallback to the vim's built in one
