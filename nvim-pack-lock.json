@@ -23,7 +23,7 @@
       "src": "https://github.com/github/copilot.vim"
     },
     "fff.nvim": {
-      "rev": "a0008b1cde4ce8f29cbdf63b52fde1ab7d0f7f6f",
+      "rev": "e0a9e08a3a6467ebb8d4b2889f1c21c3b36ba3e6",
       "src": "https://github.com/dmtrKovalenko/fff.nvim"
     },
     "fidget.nvim": {
@@ -52,7 +52,7 @@
       "version": "'harpoon2'"
     },
     "mason-lspconfig.nvim": {
-      "rev": "50bf3871b539896bd0650b882f6e6b467cc1c1eb",
+      "rev": "47059d71b42d74b0a1e9f61c1d99d301039c3b5b",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"
     },
     "mason-tool-installer.nvim": {
@@ -64,7 +64,7 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.nvim": {
-      "rev": "c248713d3530710f67ec804cfbdfcd5b02b19dee",
+      "rev": "dc8a9918c3b1bc18a5fcd04d39b6d658074c0886",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "neo-tree.nvim": {
@@ -73,7 +73,7 @@
       "version": ">=0.0.0"
     },
     "neotest": {
-      "rev": "ad991822b7076b1d940b33a9d6d0d30416d5df81",
+      "rev": "ff5437f7d9af801917bed119082934b0eb6ee0e9",
       "src": "https://github.com/nvim-neotest/neotest"
     },
     "neotest-vitest": {
@@ -97,7 +97,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "3371bf298c1f56efc26771ee961f461176958fb5",
+      "rev": "dd1c9b802c943278179a5d819369cda085b79d45",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-nio": {
