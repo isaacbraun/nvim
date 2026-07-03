@@ -117,6 +117,8 @@ local servers = {
   tsgo = {},
   astro = {},
   stylua = {}, -- Used to format Lua code
+  prettier = {},
+  -- html = {}, -- Used to format HTML code
 
   -- Special Lua Config, as recommended by neovim help docs
   lua_ls = {
