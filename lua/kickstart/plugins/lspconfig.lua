@@ -116,8 +116,15 @@ local servers = {
 
   tsgo = {},
   astro = {},
-  stylua = {}, -- Used to format Lua code
+  mdx_analyzer = {
+    init_options = {
+      typescript = {
+        enabled = true,
+      },
+    },
+  },
 
+  stylua = {}, -- Used to format Lua code
   -- Special Lua Config, as recommended by neovim help docs
   lua_ls = {
     on_init = function(client)
