@@ -31,6 +31,7 @@ require('conform').setup {
     typescript = { 'prettierd', 'prettier', stop_after_first = true },
     typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
     html = { 'prettierd', 'prettier', stop_after_first = true },
+    mdx = { 'prettierd', 'prettier', stop_after_first = true },
   },
 }
 
