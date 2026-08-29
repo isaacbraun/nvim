@@ -24,6 +24,10 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Jump half page [U]p' })
 -- Open diagnostic message in float window
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Open [D]iagnostic message under cursor' })
 
+-- Quickfix List navigation
+vim.keymap.set('n', '<M-j>', '<cmd>cnext<CR>zz', { desc = 'Open next [J] item in Quickfix List' })
+vim.keymap.set('n', '<M-k>', '<cmd>cprev<CR>zz', { desc = 'Open previous [K] item in Quickfix List' })
+
 -- Diagnostic Config & Keymaps
 --  See `:help vim.diagnostic.Opts`
 vim.diagnostic.config {
@@ -77,6 +81,33 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
   callback = function() vim.hl.on_yank() end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  desc = 'Delete quickfix item with dd',
+  pattern = 'qf',
+  callback = function(args)
+    vim.keymap.set('n', 'dd', function()
+      local qflist = vim.fn.getqflist()
+      local line = vim.api.nvim_win_get_cursor(0)[1]
+
+      table.remove(qflist, line)
+      vim.fn.setqflist(qflist, 'r')
+
+      if #qflist == 0 then
+        vim.cmd 'cclose'
+      else
+        vim.api.nvim_win_set_cursor(0, {
+          math.min(line, #qflist),
+          0,
+        })
+      end
+    end, {
+      buffer = args.buf,
+      silent = true,
+      desc = 'Delete quickfix item',
+    })
+  end,
 })
 
 -- vim: ts=2 sts=2 sw=2 et
