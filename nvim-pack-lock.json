@@ -76,6 +76,10 @@
       "src": "https://github.com/nvim-neo-tree/neo-tree.nvim",
       "version": ">=0.0.0"
     },
+    "neoconf.nvim": {
+      "rev": "4b39a6d9f2d3d481225eedcf85d04506e2cb997e",
+      "src": "https://github.com/folke/neoconf.nvim"
+    },
     "neotest": {
       "rev": "ff5437f7d9af801917bed119082934b0eb6ee0e9",
       "src": "https://github.com/nvim-neotest/neotest"
@@ -83,6 +87,10 @@
     "neotest-vitest": {
       "rev": "ab5a73d6ec9d33e807d6c67ce5169c4ca4a5d7f3",
       "src": "https://github.com/marilari88/neotest-vitest"
+    },
+    "neovim": {
+      "rev": "ff483051a47e27d84bdef47703538df1ed9f4a47",
+      "src": "https://github.com/rose-pine/neovim"
     },
     "nui.nvim": {
       "rev": "de740991c12411b663994b2860f1a4fd0937c130",

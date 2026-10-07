@@ -85,4 +85,8 @@ vim.o.scrolloff = 10
 -- See `:help 'confirm'`
 vim.o.confirm = true
 
+-- Enable project specific settings
+vim.o.exrc = true
+vim.o.secure = true
+
 -- vim: ts=2 sts=2 sw=2 et
