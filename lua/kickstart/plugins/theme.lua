@@ -7,23 +7,33 @@ local function gh(repo) return 'https://github.com/' .. repo end
 --
 -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
 vim.pack.add {
+  gh 'rose-pine/neovim',
   gh 'catppuccin/nvim',
   gh 'ellisonleao/gruvbox.nvim',
 }
 
-require('catppuccin').setup {
-  background = {
-    light = 'latte',
+-- require('catppuccin').setup {
+--   background = {
+--     light = 'latte',
+--   },
+--   transparent_background = true,
+-- }
+
+require('rose-pine').setup {
+  variant = 'dawn',
+  styles = {
+    transparency = true,
   },
 }
 
 require('gruvbox').setup {
   contrast = 'hard',
+  transparent_mode = true,
 }
 
 local function set_colorscheme()
   if vim.o.background == 'light' then
-    vim.cmd.colorscheme 'catppuccin'
+    vim.cmd.colorscheme 'rose-pine'
   else
     vim.cmd.colorscheme 'gruvbox'
   end
