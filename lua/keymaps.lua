@@ -74,6 +74,32 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
+vim.api.nvim_create_autocmd('FileType', {
+  desc = 'Open Markdown files in Obsidian',
+  group = vim.api.nvim_create_augroup('open-obsidian', { clear = true }),
+  pattern = 'markdown',
+  callback = function(args)
+    vim.keymap.set('n', '<leader>oo', function()
+      if vim.bo.filetype ~= 'markdown' or vim.bo.buftype ~= '' then
+        vim.notify('Open Obsidian only supports Markdown file buffers', vim.log.levels.WARN)
+        return
+      end
+
+      local path = vim.api.nvim_buf_get_name(0)
+      if path == '' or vim.fn.filereadable(path) ~= 1 or vim.bo.modified then
+        vim.notify('Save the Markdown file before opening it in Obsidian', vim.log.levels.WARN)
+        return
+      end
+
+      local command = { 'sh', '-c', 'obsidian command id=workspace:new-tab && open -a Obsidian "$1"', 'open-obsidian', path }
+      local ok, err = pcall(vim.system, command, { text = true }, function(result)
+        if result.code ~= 0 then vim.schedule(function() vim.notify('Failed to open Obsidian: ' .. vim.trim(result.stderr or ''), vim.log.levels.ERROR) end) end
+      end)
+      if not ok then vim.notify('Failed to launch Obsidian: ' .. tostring(err), vim.log.levels.ERROR) end
+    end, { buffer = args.buf, desc = '[O]pen [O]bsidian' })
+  end,
+})
+
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
 --  See `:help vim.hl.on_yank()`

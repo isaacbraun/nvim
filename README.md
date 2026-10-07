@@ -20,6 +20,14 @@ External Requirements:
   - If you want to write Golang, you will need `go`
   - etc.
 
+## Open in Obsidian
+
+In a Markdown buffer, press `<leader>oo` (`Space`, then `o`, then `o`) to open
+the current file in a new Obsidian tab. This runs
+`obsidian command id=workspace:new-tab` followed by macOS `open -a Obsidian`
+only if the first command succeeds. Save the file and any pending changes
+first. Obsidian must be installed with the `obsidian` CLI enabled and installed to `PATH`.
+
 ## Local MDX Language Server Patches
 
 The Mason-installed `mdx-analyzer` currently needs two local workarounds. Mason may overwrite them when reinstalling or updating the package.
