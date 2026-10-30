@@ -32,4 +32,3 @@ vim.g.fff = {
 local fff = require 'fff'
 vim.keymap.set('n', '<leader>sf', fff.find_files, { desc = '[S]earch [F]iles' })
 vim.keymap.set('n', '<leader>sg', fff.live_grep, { desc = '[S]earch by [G]rep' })
-vim.keymap.set({ 'n', 'v' }, '<leader>sw', function() fff.live_grep { query = vim.fn.expand '<cword>' } end, { desc = '[S]earch current [W]ord' })
