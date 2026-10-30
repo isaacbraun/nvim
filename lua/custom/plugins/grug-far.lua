@@ -9,17 +9,21 @@ vim.keymap.set(
   { desc = '[S]earch current [W]ord' }
 )
 
-vim.keymap.set(
-  { 'n', 'v' },
-  '<leader>rb',
-  function()
-    require('grug-far').open { prefills = {
+vim.keymap.set({ 'n', 'v' }, '<leader>rb', function()
+  local path = vim.api.nvim_buf_get_name(0)
+  if vim.bo.buftype ~= '' or path == '' or vim.fn.filereadable(path) ~= 1 then
+    vim.notify('Buffer replacement requires a saved file buffer', vim.log.levels.WARN)
+    return
+  end
+
+  require('grug-far').open {
+    prefills = {
       search = vim.fn.expand '<cword>',
-      paths = vim.fn.expand '%',
-    } }
-  end,
-  { desc = '[R]eplace current word in [B]uffer' }
-)
+      flags = '--fixed-strings --word-regexp',
+      paths = path:gsub(' ', '\\ '),
+    },
+  }
+end, { desc = '[R]eplace current word in [B]uffer' })
 
 vim.keymap.set(
   { 'n', 'v' },
@@ -27,6 +31,7 @@ vim.keymap.set(
   function()
     require('grug-far').open { prefills = {
       search = vim.fn.expand '<cword>',
+      flags = '--fixed-strings --word-regexp',
     } }
   end,
   { desc = '[R]eplace current word in [W]orkspace' }
