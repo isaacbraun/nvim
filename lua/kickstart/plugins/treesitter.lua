@@ -13,7 +13,14 @@ vim.pack.add {
 
 -- Ensure basic parsers are installed
 local parsers = { 'bash', 'c', 'diff', 'javascript', 'css', 'astro', 'typescript', 'jsdoc', 'json', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' }
-require('nvim-treesitter').install(parsers)
+
+-- If the hostname is 'brooklyn', limit the number of concurrent jobs to 1 to avoid overloading the system
+local is_brooklyn = vim.uv.os_gethostname() == 'brooklyn'
+require('nvim-treesitter').install(
+  parsers,
+  is_brooklyn and { max_jobs = 1 } or nil
+)
+
 require 'treesitter-context'
 
 ---@param buf integer
